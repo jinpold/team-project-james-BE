@@ -1,14 +1,19 @@
 package com.james.api.account;
 
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Date;
 
+@Entity(name = "account")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@ToString(exclude = {"id"})
-
+@ToString
 public class Account {
+
+    @Id
+    @Column(name = "id",nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
 
     private Long id;
     private String accountNumber;
