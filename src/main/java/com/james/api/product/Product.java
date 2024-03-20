@@ -12,4 +12,5 @@ public class Product {
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String username;
 }
