@@ -1,14 +1,17 @@
 package com.james.api.article;
 
+import jakarta.persistence.*;
 import lombok.*;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @ToString(exclude = {"id"})
-
+@Entity(name = "article")
 
 public class Article {
-
+    @Id
+    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String title;
     private String content;
