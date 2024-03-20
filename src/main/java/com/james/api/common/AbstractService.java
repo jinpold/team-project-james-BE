@@ -1,5 +1,4 @@
 package com.james.api.common;
-import com.james.api.User.User;
 import com.james.api.enums.Messenger;
 import java.sql.SQLException;
 import java.util.List;
