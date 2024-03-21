@@ -1,7 +1,10 @@
 package com.james.api.User;
 
+import com.james.api.account.Account;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Entity(name = "user")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -10,10 +13,16 @@ import lombok.*;
 public class User {
 
     @Id
-    @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.AUTO)
-
+    @Column(name = "user_id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+
+    @ManyToOne
+    @JoinColumn(name = "account_id")
+    private Account accounts;
+
+
     private String username;
     private String password;
     private String checkPassword;
@@ -24,7 +33,8 @@ public class User {
     private double height;
     private double weight;
     @Builder(builderMethodName = "builder")
-    public User(Long id, String username, String password, String checkPassword, String name, String phone, String job, double height, double weight) {
+    public User(Long id, String username, String password, String checkPassword,
+                String name, String phone, String job, double height, double weight) {
         this.id = id;
         this.username = username;
         this.password = password;
