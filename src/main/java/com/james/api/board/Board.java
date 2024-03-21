@@ -12,7 +12,7 @@ public class Board {
     @Id
     @Column(name = "board_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "article_id")
@@ -26,7 +26,7 @@ public class Board {
 
 
     @Builder(builderMethodName = "builder")
-    public Board(int id, String boardName, String boardType) {
+    public Board(Long id, String boardName, String boardType) {
         this.id = id;
         this.boardName = boardName;
         this.boardType = boardType;
