@@ -17,8 +17,8 @@ public class Article {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(mappedBy = "board")
-    private List<Board> boards;
+    @OneToMany(mappedBy = "article")
+    private List<Board> board;
 
     @Column
     private String title;
