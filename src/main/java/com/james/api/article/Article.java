@@ -1,7 +1,10 @@
 package com.james.api.article;
 
+import com.james.api.board.Board;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
@@ -10,12 +13,23 @@ import lombok.*;
 
 public class Article {
     @Id
-    @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "article_id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @OneToMany(mappedBy = "board")
+    private List<Board> boards;
+
+    @Column
     private String title;
+
+    @Column
     private String content;
+
+    @Column
     private String writer;
+
+    @Column(name = "register_date")
     private String registerDate;
 
     @Builder(builderMethodName = "builder")

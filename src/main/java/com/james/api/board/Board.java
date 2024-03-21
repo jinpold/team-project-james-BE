@@ -1,4 +1,5 @@
 package com.james.api.board;
+import com.james.api.article.Article;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -9,16 +10,25 @@ import lombok.*;
 
 public class Board {
     @Id
-    @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "board_id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String boardname;
+
+    @ManyToOne
+    @JoinColumn(name = "article_id")
+    private Article article;
+
+    @Column(name = "board_name")
+    private String boardName;
+
+    @Column(name = "board_type")
     private String boardType;
 
+
     @Builder(builderMethodName = "builder")
-    public Board(int id, String boardname, String boardType) {
+    public Board(int id, String boardName, String boardType) {
         this.id = id;
-        this.boardname = boardname;
+        this.boardName = boardName;
         this.boardType = boardType;
     }
 }
