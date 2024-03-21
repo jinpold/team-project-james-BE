@@ -20,7 +20,7 @@ public class Account {
 
 
     @OneToMany(mappedBy = "account") // mappedby가 부모에게 주는것
-    private List<User> users;
+    private List<User> user;
 
 
 
