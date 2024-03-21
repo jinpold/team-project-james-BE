@@ -1,4 +1,4 @@
-package com.james.api.order;
+package com.james.api.master;
 
 public class MasterController {
 }

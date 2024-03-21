@@ -1,4 +1,4 @@
-package com.james.api.order;
+package com.james.api.master;
 import com.james.api.product.Product;
 import jakarta.persistence.*;
 import lombok.*;
