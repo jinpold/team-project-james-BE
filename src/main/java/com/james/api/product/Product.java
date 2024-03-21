@@ -1,5 +1,5 @@
 package com.james.api.product;
-import com.james.api.order.Order;
+import com.james.api.order.Master;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.List;
@@ -11,18 +11,13 @@ import java.util.List;
 public class Product {
 
     @Id
-    @Column(name = "product_id") //기본키
+    @Column(name = "product_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(mappedBy = "product") //연결테이블(ORDER)쪽이 외래키를 갖고 있기 때문에, 연결 테이블이 연관관계의 주인이다.
-    private List<Order> orders;
+    @OneToMany(mappedBy = "product")
+    private List<Master> master;
 
-    @Column(name = "product_name") //
+    @Column(name = "product_name")
     private String productName;
-
-    public Product(Long id, String productName) {
-        this.id = id;
-        this.productName = productName;
-    }
 }

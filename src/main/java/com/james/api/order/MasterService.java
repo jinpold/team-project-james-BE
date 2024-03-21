@@ -1,4 +1,4 @@
 package com.james.api.order;
 
-public class OrderServiceImpl {
+public class MasterService {
 }

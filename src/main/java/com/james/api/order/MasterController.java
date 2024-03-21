@@ -1,4 +1,4 @@
 package com.james.api.order;
 
-public class OrderController {
+public class MasterController {
 }
