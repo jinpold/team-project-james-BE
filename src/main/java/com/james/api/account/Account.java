@@ -1,13 +1,13 @@
 package com.james.api.account;
 
-import com.james.api.User.User;
+import com.james.api.user.User;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Date;
 import java.util.List;
 
-@Entity(name = "account")
+@Entity(name = "accounts")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @ToString
@@ -15,7 +15,7 @@ public class Account {
 
     @Id
     @Column(name = "account_id",nullable = false)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
 

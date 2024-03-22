@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
 
-@Entity(name="master")
+@Entity(name="masters")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @ToString

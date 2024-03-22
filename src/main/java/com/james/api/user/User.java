@@ -1,12 +1,10 @@
-package com.james.api.User;
-
+package com.james.api.user;
 import com.james.api.account.Account;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
 
-@Entity(name = "user")
+@Entity(name = "users")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @ToString
@@ -28,7 +26,6 @@ public class User {
     private String checkPassword;
     private String name;
     private String phone;
-    private Long addressId;
     private String job;
     private double height;
     private double weight;

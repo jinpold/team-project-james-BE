@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import java.util.List;
 
-@Entity(name="product")
+@Entity(name="products")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @ToString

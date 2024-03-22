@@ -9,7 +9,7 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @ToString(exclude = {"id"})
-@Entity(name = "article")
+@Entity(name = "articles")
 
 public class Article {
     @Id

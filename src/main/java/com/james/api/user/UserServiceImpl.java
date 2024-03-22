@@ -1,4 +1,4 @@
-package com.james.api.User;
+package com.james.api.user;
 
 import com.james.api.enums.Messenger;
 import lombok.RequiredArgsConstructor;

@@ -1,8 +1,7 @@
-package com.james.api.User;
+package com.james.api.user;
 import com.james.api.enums.Messenger;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
 import java.sql.SQLException;
 import java.util.*;
 
@@ -12,7 +11,9 @@ import java.util.*;
 public class UserController {
     private final UserService service;
 
-    @PostMapping("/login")
+    private final UserRepository userRepository;
+
+    @PostMapping("/api/login")
         public Map<String, ?> login(@RequestBody Map<String, ?> paraMap){
         Map<String,String> map = new HashMap<>();
         String username = (String) paraMap.get("username");
@@ -24,10 +25,25 @@ public class UserController {
         map.put("password", password);
         return map;
     }
+    @PostMapping(path="/api/user")
+    public Map<String, ?>join(@RequestBody Map<String, ?> paraMap){
+        String strHeight = String.valueOf(paraMap.get("height"));
+        String strWeight = String.valueOf(paraMap.get("weight"));
 
-    public Map<String, ?> save(@RequestBody Map<String, ?> paraMap) throws SQLException {
-        System.out.println("\"아이디, 비밀번호, 비밀번호확인, 이름, 전화번호, 폰번호, 주소, 직업을 입력하세요\"");
-        return null;
+        User newUser = userRepository.save(User.builder()
+                .username((String) paraMap.get("username"))
+                .password((String) paraMap.get("password"))
+                .checkPassword((String) paraMap.get("checkPassword"))
+                .name((String) paraMap.get("name"))
+                .phone((String) paraMap.get("phone"))
+                .job((String) paraMap.get("job"))
+                .height(Double.parseDouble(strHeight))
+                .weight(Double.parseDouble(strWeight))
+                .build());
+        System.out.println("DB에 저장된 User 정보:" + newUser);
+        Map<String, Messenger> map = new HashMap<>();
+        map.put("result", Messenger.SUCCESS);
+        return map;
     }
 
     public List<User> findAll() {
