@@ -1,9 +1,7 @@
 package com.james.api.article;
-
 import com.james.api.board.Board;
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.util.List;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
