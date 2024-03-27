@@ -2,8 +2,6 @@ package com.james.api.user;
 import com.james.api.account.Account;
 import jakarta.persistence.*;
 import lombok.*;
-
-
 @Entity(name = "users")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter

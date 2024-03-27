@@ -2,26 +2,20 @@ package com.james.api.article;
 import com.james.api.user.User;
 import com.james.api.common.AbstractService;
 import com.james.api.enums.Messenger;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
-
+@Service
+@RequiredArgsConstructor
 public class ArticleServiceImpl extends AbstractService implements ArticleService {
 
-    private ArticleRepository articleRepository;
-    private static ArticleServiceImpl instnace = new ArticleServiceImpl();
-
-    private ArticleServiceImpl() {
-        this.articleRepository = ArticleRepository.getInstance();
-    }
-    public static ArticleServiceImpl getInstnace() {
-        return instnace;
-    }
+    private final ArticleRepository repository;
     @Override
-    public List<?> findAll() throws SQLException {
-        return articleRepository.findAll();
+    public List<Article> findAll() throws SQLException {
+        return repository.findAll();
     }
-
     @Override
     public Messenger save(Object o) {
         return null;

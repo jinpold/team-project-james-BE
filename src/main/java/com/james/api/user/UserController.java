@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import java.sql.SQLException;
 import java.util.*;
-
 @CrossOrigin(origins = "http://localhost:3000") //1번 문 열어주기
 @RestController
 @RequiredArgsConstructor
@@ -32,7 +31,7 @@ public class UserController {
         return map; // Response.data = ResposeBody
     }
 
-    @PostMapping(path="/api/user")
+    @PostMapping(path="/api/users")
     public Map<String, ?>join(@RequestBody Map<String, ?> paraMap){
         String strHeight = String.valueOf(paraMap.get("height"));
         String strWeight = String.valueOf(paraMap.get("weight"));

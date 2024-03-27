@@ -1,9 +1,7 @@
 package com.james.api.account;
-
 import com.james.api.user.User;
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.util.Date;
 import java.util.List;
 
@@ -18,10 +16,8 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     @OneToMany(mappedBy = "account") // mappedby가 부모에게 주는것
     private List<User> user;
-
 
 
     private String accountNumber;

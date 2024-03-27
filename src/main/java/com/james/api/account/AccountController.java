@@ -1,6 +1,5 @@
 package com.james.api.account;
 import com.james.api.enums.Messenger;
-
 import java.util.List;
 import java.util.Scanner;
 public class AccountController {
