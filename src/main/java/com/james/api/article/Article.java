@@ -21,20 +21,19 @@ public class Article {
     private List<Board> board;
 
     @ManyToOne
-    @JoinColumn(name = "user id")
-    private User user;
-
+    @JoinColumn(name = "user_id")
+    private User writer;
+    @Column
     private String title;
-
+    @Column
     private String content;
-
-    private Long writer;
+//    private String writer;
 
     @Column(name = "register_date")
     private String registerDate;
 
     @Builder(builderMethodName = "builder")
-    public Article(Long id, String title, String content, Long writer, String registerDate) {
+    public Article(Long id, String title, String content, User writer, String registerDate) {
         this.id = id;
         this.title = title;
         this.content = content;

@@ -1,4 +1,5 @@
 package com.james.api.user;
+import com.james.api.article.Article;
 import com.james.api.enums.Messenger;
 import java.sql.SQLException;
 import java.util.List;
@@ -17,5 +18,5 @@ public interface UserService {
     Messenger createTable() throws SQLException;;
     Messenger deleteTable () throws SQLException;
     Messenger insertData(User user) throws SQLException;
-
+    List<Article> findAll();
 }

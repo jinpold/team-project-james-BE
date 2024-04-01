@@ -20,7 +20,7 @@ public class User {
     @JoinColumn(name = "account_id")
     private Account account;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "writer")
     private List<Article> article;
 
     @Column

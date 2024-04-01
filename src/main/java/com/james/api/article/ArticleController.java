@@ -18,19 +18,12 @@ public class ArticleController {
 
     private final ArticleServiceImpl service;
 //    private final ArticleRepository repository;
-    @GetMapping("/api/articles")
+    @GetMapping("/api/all-articles")
     public Map<?, ?> findAll() throws SQLException {
         Map<String, Object> map = new HashMap<>();
         map.put("message", Messenger.SUCCESS);
         @SuppressAjWarnings("unchecked")
         List <Article> list = new ArrayList<>();
-//        list.add(Article.builder()
-//                .id(1L)
-//                .title("제목")
-//                .content("내용")
-//                .writer("글쓴이")
-//                .registerDate("등록일")
-//                .build());
         list = service.findAll();
         map.put("result", list);
         return map;

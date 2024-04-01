@@ -1,5 +1,6 @@
 package com.james.api.user;
 
+import com.james.api.article.Article;
 import com.james.api.enums.Messenger;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -71,6 +72,11 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public Messenger insertData(User user) throws SQLException {
+        return null;
+    }
+
+    @Override
+    public List<Article> findAll() {
         return null;
     }
 }
